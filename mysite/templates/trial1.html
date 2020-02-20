@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% load crispy_forms_field %}
+
+{% block content %}
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pezesha</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+  <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <link rel="stylesheet" href="{%static 'core/style2.css'%}">
+  
+</head>
+
+<body>
+<section class="hero is-fullheight"   >
+
+      <div class="columns">
+        <div class="column is-offset-2 is-4">
+
+          <form class="needs-validation" action="{% url 'trial_1' %}" method="POST" autocomplete="off" novalidate>
+            {% csrf_token %}
+            <div class="field">
+              <label for="{{ form.full_name.id_for_label }}" class="label">
+                Full Name On National ID
+              </label>
+              <div class="control">
+                {{ form.full_name|add_class:"input" }}
+              </div>
+              <p class="help is-danger">{{ form.full_name.errors }}</p>
+            </div>
+
+            <div class="field">
+              <label for="{{ form.national_id.id_for_label }}" class="label">
+                National ID
+              </label>
+              <div class="control">
+                {{ form.national_id|add_class:"input" }}
+              </div>
+              <p class="help is-danger">{{ form.national_id.errors }}</p>
+            </div>
+
+            <div class="field">
+              <label for="{{ form.email.id_for_label }}" class="label">
+                Email
+              </label>
+              <div class="control">
+                {{ form.email|add_class:"input" }}
+              </div>
+              <p class="help is-danger">{{ form.email.errors }}</p>
+            </div>
+    
+            <div class="field">
+              <label for="{{ form.phone_number.id_for_label }}" class="label">
+                Phone Number
+              </label>
+              <div class="control">
+                {{ form.phone_number|add_class:"input" }}
+              </div>
+              <p class="help is-danger">{{ form.phone_number.errors }}</p>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <a class="button is-link"  href="{% url 'trial_2' %}">Next</a>
+              </div>
+
+        
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+  </script>
+
+
+
+</body>
+</html>
+
+{% endblock %}

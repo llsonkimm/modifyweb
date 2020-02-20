@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% load crispy_forms_field %}
+
+{% block content %}
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pezesha</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+  <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <link rel="stylesheet" href="{%static 'core/style2.css'%}">
+  
+</head>
+
+<body>
+<section class="hero is-fullheight"   >
+
+      <div class="columns">
+        <div class="column is-offset-2 is-4">
+
+          <form class="needs-validation" action="{% url 'trial_2' %}" method="POST" autocomplete="off" novalidate>
+            {% csrf_token %}
+    
+            <div class="field">
+              <label for="{{ form.company_name.id_for_label }}" class="label">
+                Company Name
+              </label>
+              <div class="control">
+                {{ form.company_name|add_class:"input" }}
+              </div>
+              <p class="help is-danger">{{ form.company_name.errors }}</p>
+            </div>
+
+            <div class="field">
+              <label for="{{ form.specific_location.id_for_label }}" class="label", attrs="{'placeholder': 'Eg. Nairobi CBD at Telcom Towers'}">
+                Specific Location
+              </label>
+              <div class="control">
+                {{ form.specific_location|add_class:"input" }}
+              </div>
+              <p class="help is-danger">{{ form.specific_location.errors }}</p>
+            </div>
+
+            <div class="field">
+              <label for="{{ form.type_of_business.id_for_label }}" class="label">
+                Type of Business Registration?
+              </label>
+              <div class="control">
+                {{ form.type_of_business|add_class:"input" }}
+              </div>
+              <p class="help is-danger">{{ form.type_of_business.errors }}</p>
+            </div>
+    
+            <div class="field">
+              <label for="{{ form.age_of_business.id_for_label }}" class="label">
+                How old is your business?
+              </label>
+              <div class="control">
+                {{ form.age_of_business|add_class:"input" }}
+              </div>
+              <p class="help is-danger">{{ form.age_of_business.errors }}</p>
+            </div>
+
+            <div class="field">
+              <label for="{{ form.bsn_industry.id_for_label }}" class="label">
+                Industry of Business?
+              </label>
+              <div class="control">
+                {{ form.bsn_industry|add_class:"input" }}
+              </div>
+              <p class="help is-danger">{{ form.bsn_industry.errors }}</p>
+            </div>
+
+            <div class="field">
+              <label for="{{ form.company_reg.id_for_label }}" class="label">
+                Company Registration No or Equivalent
+              </label>
+              <div class="control">
+                {{ form.company_reg|add_class:"input" }}
+              </div>
+              <p class="help is-danger">{{ form.company_reg.errors }}</p>
+            </div>
+
+            <div class="field">
+              <label for="{{ form.est_revenue.id_for_label }}" class="label">
+                Estimated Yearly Revenue? (KES)
+              </label>
+              <div class="control">
+                {{ form.est_revenue|add_class:"input" }}
+              </div>
+              <p class="help is-danger">{{ form.est_revenue.errors }}</p>
+            </div>
+
+            <div class="field">
+              <label for="{{ form.comp_site.id_for_label }}" class="label">
+                Company Website/Social Media (Optional)
+              </label>
+              <div class="control">
+                {{ form.comp_site|add_class:"input" }}
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="{{ form.mpesa.id_for_label }}" class="label">
+                Mpesa\Till No Business Payments Accepted?
+              </label>
+              <div class="control">
+                {{ form.mpesa|add_class:"input" }}
+              </div>
+              <p class="help is-danger">{{ form.mpesa.errors }}</p>
+            </div>
+
+            <div class="field">
+
+              <div class="control">
+                <a class="button is-link" href="{% url 'trial_1' %}">Back</a>
+              </div>
+
+              <div class="control">
+                <a class="button is-link"  href="{% url 'trial_3' %}">Next</a>
+              </div>
+
+              
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+  </script>
+</body>
+</html>
+
+{% endblock %}

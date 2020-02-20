@@ -1,0 +1,63 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <title>{% block title %}My Site{% endblock %}</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Oswald:300,400" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="{%static 'core/style2.css'%}">
+
+</head>
+<body>
+<div class="logo" >
+  <img src="https://res.cloudinary.com/lsonkimm/image/upload/v1582023009/pezesha-logo_ybhhej.png" class="centre">
+</div>
+  
+  <div class="container is-fullheight">
+    <div class="hero-body" >
+      <div class="container">
+        <h1 class="title has-text-centered">
+          SME Loan Application Form
+        </h1>
+        <p class="subtitle has-text-centered">
+          Complete the following steps to submit your SME Loan application.
+        </p>
+      </div>
+    
+  
+    <div class=" card-group">
+      <div class="card  is-offset-2 is-4">
+      <a class="btn btn-success {% if request.path == '/trial1/' %} active{% endif %}" href="{% url 'trial_1' %}"><i class=" large material-icons "  >account_box</i></a>
+      <p class="card-text"> <a class="{% if request.path == '/trial1/' %} active{% endif %}" href="{% url 'trial_1' %}">Personal Details</a></p>
+    </div>
+    <div class="card   is-offset-2 is-4">
+    <a class="btn btn-success {% if request.path == '/trial2/' %} active{% endif %}" href="{% url 'trial_2' %}" ><i class=" large material-icons"  >settings</i></a>
+      <p class="card-text"><a class="{% if request.path == '/trial2/' %} active{% endif %}" href="{% url 'trial_2' %}">Business Info</a></p>
+    </div>
+  
+    <div class="card  is-offset-2 is-4 "> 
+    <a class="btn btn-success {% if request.path == '/trial3/' %} active{% endif %}" href="{% url 'trial_3' %}"><i class=" large material-icons" >done</i></a>
+      <p class="card-text"><a class="{% if request.path == '/trial3/' %} active{% endif %}" href="{% url 'trial_3' %}">Funding Needs</a></p>
+  </div> 
+      </div>
+  
+  </div>
+</div>
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% load crispy_forms_field %}
+
+{% block content %}
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pezesha</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+  <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <link rel="stylesheet" href="{%static 'core/style2.css'%}">
+  
+</head>
+
+<body>
+<section class="hero is-fullheight"   >
+
+      <div class="columns">
+        <div class="column is-offset-2 is-4">
+
+          <form class="needs-validation" action="{% url 'trial_3' %}" method="POST" autocomplete="off" novalidate>
+            {% csrf_token %}
+    
+            <div class="field">
+              <label for="{{ form.kra_pin.id_for_label }}" class="label">
+                Personal or Business KRA Pin (For verification)
+              </label>
+              <div class="control">
+                {{ form.kra_pin|add_class:"input" }}
+              </div>
+              <p class="help is-danger">{{ form.kra_pin.errors }}</p>
+            </div>
+
+            <div class="field">
+              <label for="{{ form.amount_needed.id_for_label }}" class="label">
+                How much do you need? (KSHS)
+              </label>
+              <div class="control">
+                {{ form.amount_needed|add_class:"input" }}
+              </div>
+              <p class="help is-danger">{{ form.amount_needed.errors }}</p>
+            </div>
+
+            <div class="field">
+              <label for="{{ form.months_for.id_for_label }}" class="label">
+                In how many months will you pay back the loan?
+              </label>
+              <div class="control">
+                {{ form.months_for|add_class:"input" }}
+              </div>
+              <p class="help is-danger">{{ form.months_for.errors }}</p>
+            </div>
+    
+            <div class="field">
+              <label for="{{ form.about_us.id_for_label }}" class="label">
+                How did you hear about our SME program?
+              </label>
+              <div class="control">
+                {{ form.about_us|add_class:"input" }}
+              </div>
+              <p class="help is-danger">{{ form.about_us.errors }}</p>
+            </div>
+
+            <div class="field">
+              <label for="{{ form.agreed.id_for_label }}" class="label">
+                I agree with the terms and conditions
+              </label>
+              <div class="control">
+                {{ form.agreed|add_class:"input" }}
+              </div>
+              <p class="help is-danger">{{ form.agreed.errors }}</p>
+            </div>
+
+
+            <div class="field">
+
+              <div class="control">
+                <a class="button is-link"  href="{% url 'trial_2' %}">Back</a>
+              </div>
+
+              <div class="control">
+                <a class="button is-link" href="{% url 'success' %}">Submit</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+  </script>
+
+</body>
+</html>
+
+{% endblock %}

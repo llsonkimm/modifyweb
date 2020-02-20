@@ -1,0 +1,510 @@
+{% extends 'register.html' %}
+
+{% load static %}
+{% block content %}
+<html>
+    <head>
+      {% load static %}
+    
+    
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{%static 'core/style.css'%}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Roboto|Oswald:300,400" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+      
+      <script>
+        $(document).ready(function(){
+          // Activate Carousel
+          $("#myCarousel").carousel({interval: 8000});
+            
+          // Enable Carousel Indicators
+          $(".item1").click(function(){
+            $("#myCarousel").carousel(0);
+          });
+          $(".item2").click(function(){
+            $("#myCarousel").carousel(1);
+          });
+          $(".item3").click(function(){
+            $("#myCarousel").carousel(2);
+          });
+          $(".item4").click(function(){
+            $("#myCarousel").carousel(3);
+          });
+            
+          // Enable Carousel Controls
+          $(".left").click(function(){
+            $("#myCarousel").carousel("prev");
+          });
+          $(".right").click(function(){
+            $("#myCarousel").carousel("next");
+          });
+        });
+        </script>
+    
+    
+    </head>
+    
+    <body>
+    
+    
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
+        <div class="container">
+            <a  href="https://pezesha.com/" class="navbar-brand"><img src="https://res.cloudinary.com/lsonkimm/image/upload/v1581589832/basczat9bnn1eaf5winl_e1ggbi.jpg" alt=""/></a>
+            <div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                </button>
+            </div>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item">
+                        <a href="https://pezesha.com/" class="nav-link">Home</a>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropbtn" >About <i class="fa fa-caret-down"></i> </button>
+                        <div class="dropdown-content">
+                            <a href="#" class="dropdown-item">About the company</a>
+                            <a href="#" class="dropdown-item">Testimonials</a>
+                            <a href="#" class="dropdown-item">Our Impact</a>
+                            <a href="#" class="dropdown-item">FAQS</a>
+                            <a href="#" class="dropdown-item">Privacy Policy</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropbtn" >Invest <i class="fa fa-caret-down"></i> </button>
+                        <div class="dropdown-content">
+                            <a href="#" class="dropdown-item">Individuals</a>
+                            <a href="#" class="dropdown-item">Institutions</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropbtn" >Borrow <i class="fa fa-caret-down"></i> </button>
+                        <div class="dropdown-content">
+                            <a href="#" class="dropdown-item">Individual</a>
+                            <a href="#" class="dropdown-item">SMES</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Blog</a>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropbtn" >Career <i class="fa fa-caret-down"></i> </button>
+                        <div class="dropdown-content">
+                            <a href="#" class="dropdown-item">Vacancies</a>
+                            <a href="#" class="dropdown-item">Pezesha Fellowship Program</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Contact us</a>
+                    </li>
+                    <li class="nav-item">
+                      <a type="button"  class="btn btn-outline-danger" href="{% url 'register' %}">
+                        <strong>Register Here</strong>
+                      </a>
+                  </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    
+    
+    
+    
+      <div class="row">
+            <div class="col-md-12">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Carousel indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>   
+                    <!-- Wrapper for carousel items -->
+                    <div class="carousel-inner">
+                        <div class="item carousel-item active">
+                            <img class =" linear-gradient(to center rgba(225, 226, 233, 0.52), rgba(245, 238, 243, 0.73))" src="https://res.cloudinary.com/lsonkimm/image/upload/v1581866363/unnamed_xu1vb4.jpg" alt="">
+                            <div class="carousel-caption">
+                                <h3>Are you a small business looking for working capital? </h3>
+                  <p>Wezesha Biashara na Pezesha. Get Support  From our Award Winning and Qualified Team</p><br>
+                  <div class="listing">
+                    <ul>
+                      <li>Quick. Easy. Fair terms.</li>
+                      <li>Short term financing: Up to Kshs 20,000</li>
+                      <li>Long term financing : Up to Kshs 1M</li>
+                    </ul>
+                </div>
+                  <div class="carousel-action">
+                                    <a href="#jProfile4" class="btn btn-primary">Learn More</a>
+                                    <a href="{% url 'register' %}" class="btn btn-success">Apply Here</a>
+                                </div>
+                            </div>
+                        </div>	
+                        <div class="item carousel-item">
+                            <img src="https://res.cloudinary.com/lsonkimm/image/upload/v1580285563/project2_lmiyep.jpg" alt="">
+                            <div class="carousel-caption">
+                                <h3>Amazing Digital Experience</h3>							
+                                <p>We provide you  technology and software tools to manage your business inventory efficiently that will track your business operations.</p>
+                                <div class="carousel-action">
+                                    <a href="#" class="btn btn-primary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item carousel-item">
+                            <img src="https://res.cloudinary.com/lsonkimm/image/upload/v1581853507/Habits-Inforgraphic-02-1024x893_hu8ovz.jpg" alt="">
+                            <div class="carousel-caption">
+                                <h3>Live Monitoring Tools</h3>
+                                <p>We recommend you with easy to use mobility tools that will track your business operations, credit sales, giving you full visibility, analytics efficiency and boost your credit score.</p>
+                                <div class="carousel-action">
+                                    <a href="#" class="btn btn-primary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>	
+                    </div>
+                    <!-- Carousel controls -->
+                    <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+      <button onclick="topFunction()" id="myBtn" title="Go to top">
+        <i class="fa fa-2x fa-arrow-circle-up hvr-icon-float" aria-hidden="true"></i>
+      </button>
+    
+    <section id="profile">
+        <div class="container">
+              <h3>Our Commitment</h3>
+              <p>We strive to serve you efficiently and effectively. Here’s how we can help you.</p>
+    </section>
+    
+            <div class="container">
+              <div class="row">
+                <div class="col s4">
+                  <div class="centre">
+                    <img src="https://res.cloudinary.com/lsonkimm/image/upload/v1581873630/1_izvpkc.jpg">
+                    <p>Grow your business and profits</p>
+                  </div>
+                </div>
+              
+                <div class="col s4">
+                  <div class="centre">
+                    <img src="https://res.cloudinary.com/lsonkimm/image/upload/v1581873629/2_domrlm.jpg">
+                    <p>Grow your credit score to access bigger bank financing</p>
+                  </div>
+                </div>
+              
+                <div class="col s4">
+                  <div class="centre">
+                    <img src="https://res.cloudinary.com/lsonkimm/image/upload/v1581873630/3_nykoav.jpg">
+                    <p>Buy Business assets and tools for trade</p>
+                  </div>
+                </div>
+              
+                <div class="col s4">
+                  <div class="centre">
+                    <img src="https://res.cloudinary.com/lsonkimm/image/upload/v1581873630/4_mydh4x.jpg">
+                    <p>Expand your distribution network with more customers</p>
+                  </div>
+                </div>
+    
+              </div>
+              <div class="row">
+                <div class="col s4">
+                  <div class="centre">
+                    <img src="https://res.cloudinary.com/lsonkimm/image/upload/v1581873629/5_e9gra5.jpg">
+                    <p>Purchase technology and software tools to manage your business inventory efficiently</p>
+                  </div>
+                </div>  
+    
+                <div class="col s4">
+                  <div class="centre">
+                    <img src="https://res.cloudinary.com/lsonkimm/image/upload/v1581873630/6_n2y4rh.jpg">
+                    <p>Get financing for working capital of amounts $1000- $10,000</p>
+                  </div>
+                </div>
+              
+                <div class="col s4">
+                  <div class="centre">
+                    <img src="https://res.cloudinary.com/lsonkimm/image/upload/v1581873629/7_ujt0w2.jpg">
+                    <p>Access affordable financing with average interest rates of 15%-25% p.a for a period of 1-12 months</p>
+                  </div>
+                </div>
+              
+                <div class="col s4">
+                  <div class="centre">
+                    <img src="https://res.cloudinary.com/lsonkimm/image/upload/v1581873629/8_stftl8.jpg">
+                    <p>Grow your business and profits</p>
+                  </div>
+                </div>
+              
+              </div>
+              <div class="row">
+              <div class="col s4">
+                <div class="centre">
+                  <img src="https://res.cloudinary.com/lsonkimm/image/upload/v1581873629/9_ez8yal.jpg">
+                  <p>Access our SME financial Education program</p>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+    
+    
+    
+      <section id="jProfile2">
+        <div class="container">
+          <div class="sliding-background"></div>
+              <h3>What is happening?</h3>
+              <p>Have a Glance at Some of Our Happy Customers.</p>
+        </div>
+      </section>
+    
+      <div class="album">
+        <div class="container">
+            <div class="card-group">
+              <div class="card  mb-4 border-0 align-items-center">
+                <img class="card-img-top" src="https://res.cloudinary.com/lsonkimm/image/upload/v1581877488/Christopher-Ngugi-1024x768_a0h3z5.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Small Business and thriving.</p>
+                </div>
+              </div>
+    
+              <div class="card  mb-4 border-0 align-items-center">
+                <img class="card-img-top" src="https://res.cloudinary.com/lsonkimm/image/upload/v1581877485/Business-Ideas-in-Kenya-1_kno1w2.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">We support every business.</p>
+                </div>
+              </div>
+    
+              <div class="card  mb-4 border-0 align-items-center ">
+                <img class="card-img-top" src="https://res.cloudinary.com/lsonkimm/image/upload/v1581877485/beadwork_0_cvfapw.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">We also support group initiatives</p>
+                </div>
+              </div>
+              
+              </div>
+    
+              <div class="card-group">
+                <div class="card  mb-4 border-0 align-items-center">
+                  <img class="card-img-top" src="https://res.cloudinary.com/lsonkimm/image/upload/v1581877485/Shop-Stock-unilever_qgckvw.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <p class="card-text">We Empower Emerging Businesses</p>
+                  </div>
+                </div>
+          
+                <div class="card  mb-4 border-0 align-items-center">
+                  <img class="card-img-top" src="https://res.cloudinary.com/lsonkimm/image/upload/v1581877474/business_wzjojd.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <p class="card-text">Both Men and Women are Supported.</p>
+                  </div>
+                </div>
+          
+                <div class="card  mb-4 border-0 align-items-center">
+                  <img class="card-img-top" src="https://res.cloudinary.com/lsonkimm/image/upload/v1581860786/small-business-ideas_ipyjtu.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <p class="card-text">We Guarantee Prosperity.</p>
+                  </div>
+                </div>
+                
+                </div>
+        </div>
+      </div>
+      <section id="jProfile3">
+        <div class="container">
+              <h3>How You Benefit With Us</h3>
+              <p>These are your direct and achievable benefits.</p>
+        
+        
+        </div>
+      </section>
+      <section id="cards">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+            <div class="card-group">
+              <div class="card mb-4 border-0   align-items-center">
+                <img src="https://res.cloudinary.com/lsonkimm/image/upload/v1581939559/download_1_sld5jl.jpg">
+                <div class="card-body">
+                  <h5 class="card-title">Access to working capital</h5>
+                  <p class="card-text">No stress on whether your business will make it in the long term. We provide quick debt working capital to keep your business healthy at all costs.</p>
+                </div>
+              </div>
+        
+              <div class="card mb-4 border-0 align-items-center">
+                <img src="https://res.cloudinary.com/lsonkimm/image/upload/v1581939556/download_2_ah2ydk.jpg">
+                <div class="card-body">
+                  <h5 class="card-title">Credit scoring</h5>
+                  <p class="card-text">We request for additional financial and business data and administer a simple survey to assess your risk profile and loan limit.</p>
+                </div>
+              </div>
+        
+              <div class="card mb-4 border-0 align-items-center ">
+                <img src="https://res.cloudinary.com/lsonkimm/image/upload/v1581939557/download_3_ulk47g.jpg">
+                <div class="card-body">
+                  <h5 class="card-title">Financial Education</h5>
+                  <p class="card-text">We equip you with the right financial knowledge to manage your business and ensure profitability and long term decision making process.</p>
+                </div>
+              </div>
+              
+              </div>
+            </div>
+          </div>
+        
+              <div class="card-group">
+               
+                <div class="card  mb-4 border-0 align-items-center">
+                  <img src="https://res.cloudinary.com/lsonkimm/image/upload/v1581939557/download_4_akoqgk.jpg">
+                  <div class="card-body">
+                    <h5 class="card-title">Access to technology & tools</h5>
+                    <p class="card-text">Credit is not impactful if its not measured and monitored. We recommend you with easy to use mobility tools that will track your business operations, credit sales, giving you full visibility, analytics efficiency and boost your credit score.</p>
+                  </div>
+                </div>
+        
+                <div class="card  mb-4 border-0 align-items-center">
+                  <img src="https://res.cloudinary.com/lsonkimm/image/upload/v1581939557/download_4_akoqgk.jpg">
+                  <div class="card-body">
+                    <h5 class="card-title">Retain your customers</h5>
+                    <p class="card-text">We view credit as a wealth creation tool for you and your business but also a strategy to retain your customers by ensuring you always have inventory based on their needs/demands.</p>
+                  </div>
+                </div>
+                
+                </div>
+        </div>
+      </section>
+    
+    
+    
+    
+      <section id="jProfile4">
+        <div class="container">
+              <h3>Our Simple Procedure</h3>
+              <p>The right way to get you started.</p>
+        </div>
+      </section>
+    <div class="container">
+        <div class="wpb_text_column wpb_content_element " >
+            <div class="wpb_wrapper">
+                <div id="ps-timeline2f230ccd89642526d9e0ee22d3e4fd47" class="row example-centered"><ul class="ps_timeline ps_timeline-centered"><li class="ps_timeline-item"><div class="ps_timeline-marker"></div><div class="ps_timeline-content"><h3 class="ps_timeline-label">Step 1</h3><h4 class="ps_timeline-title">Apply</h4><p><span class="icon-placeholder-v"><i class="fa fa-list-alt"></i></span> </p><div class="ps_v_content"> <p>Register your KYC information to open a business profile with us</p></div></div></li><li class="ps_timeline-item"><div class="ps_timeline-marker"></div><div class="ps_timeline-content"><h3 class="ps_timeline-label">Step 2</h3><h4 class="ps_timeline-title">Evaluate</h4><p><span class="icon-placeholder-v"><i class="fa fa-balance-scale"></i></span> </p><div class="ps_v_content"> <p>We then analyse your business fit and invite you for a presentation</p></div></div></li><li class="ps_timeline-item"><div class="ps_timeline-marker"></div><div class="ps_timeline-content"><h3 class="ps_timeline-label">Step 3</h3><h4 class="ps_timeline-title">Credit scoring</h4><p><span class="icon-placeholder-v"><i class="fa fa-clock-o"></i></span> </p><div class="ps_v_content"> <p>We request for additional financial and business data and administer a simple survey to assess your risk profile and loan limit</p></div></div></li><li class="ps_timeline-item"><div class="ps_timeline-marker"></div><div class="ps_timeline-content"><h3 class="ps_timeline-label">Step 4</h3><h4 class="ps_timeline-title">Due Diligence</h4><p><span class="icon-placeholder-v"><i class="fa fa-search"></i></span> </p><div class="ps_v_content"> <p>We work with our legal and credit risk team to visit your premises and conduct due diligence</p></div></div></li><li class="ps_timeline-item"><div class="ps_timeline-marker"></div><div class="ps_timeline-content"><h3 class="ps_timeline-label">Step 5</h3><h4 class="ps_timeline-title">Matching</h4><p><span class="icon-placeholder-v"><i class="fa fa-random"></i></span> </p><div class="ps_v_content"> <p>We then match you with lenders on our marketplace interested to fund your business</p></div></div></li><li class="ps_timeline-item"><div class="ps_timeline-marker"></div><div class="ps_timeline-content"><h3 class="ps_timeline-label">Step 6</h3><h4 class="ps_timeline-title">Funding</h4><p><span class="icon-placeholder-v"><i class="fa fa-money"></i></span> </p><div class="ps_v_content"> <p>Within days you receive your debt funding with clear repayment plan and terms</p></div></div></li><li class="ps_timeline-item"><div class="ps_timeline-marker"></div><div class="ps_timeline-content"><h3 class="ps_timeline-label">step 7</h3><h4 class="ps_timeline-title">Repayment &#038; monitoring</h4><p><span class="icon-placeholder-v"><i class="fa fa-line-chart"></i></span> </p><div class="ps_v_content"> <p>We offer you a flexible repayment plan of 1-12 months and ways to track your credit history as our interest is to see your business grow</p></div></div></li></ul></div><style type="text/css">#ps-timeline2f230ccd89642526d9e0ee22d3e4fd47 .ps_timeline-content .ps_timeline-label{color:#7BD429!important;}
+                           #ps-timeline2f230ccd89642526d9e0ee22d3e4fd47 .icon-placeholder-v i {
+                           color:#7BD429!important;}
+                           #ps-timeline2f230ccd89642526d9e0ee22d3e4fd47 .ps_timeline-marker:after { background: #7BD429!important; }
+                           #ps-timeline2f230ccd89642526d9e0ee22d3e4fd47 .ps_timeline-marker:before{background: #7BD429!important;}
+                           #ps-timeline2f230ccd89642526d9e0ee22d3e4fd47 .ps_timeline-content .ps_timeline-title { border-bottom-color: #7BD429!important;}#ps-timeline2f230ccd89642526d9e0ee22d3e4fd47 .icon-placeholder-v i {
+                            font-size:50px!important;
+                            margin-left: -3px;}</style>
+    
+            </div>
+      </div>
+      </div>
+    </div></div></div></div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div class="wpb_column vc_column_container col-sm-12 vc_col-lg-offset-0 vc_col-md-offset-0 col-sm-offset-0 vc_col-has-fill"><div class="vc_column-inner vc_custom_1548756221763"><div class="wpb_wrapper"></div></div></div><div class="section-title no-padding wpb_column vc_column_container col-sm-12 vc_col-has-fill"><div class="vc_column-inner vc_custom_1548766044375"><div class="wpb_wrapper"></div></div></div>
+    <footer class="footer-6 unpad--bottom bg--dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12"><div id="media_image-3" class="widget widget_media_image sidebar__element"><img width="100" height="32" src="https://pezesha.com/wp-content/uploads/2017/03/official_pezesha-logo-e1537177051830.png" class="image wp-image-1399  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" /></div><div id="custom_html-2" class="widget_text widget widget_custom_html sidebar__element"><div class="textwidget custom-html-widget"><a href="mailto:hello@pezesha.com" 
+    style="padding-top:16px; color:#E0E0E0; letter-spacing:0.5px;">
+    <i class="material-icons"
+    style="color:#E0E0E0;">mail_outline</i>&nbsp
+    hello@pezesha.com
+    </a>  </div></div></div>		</div><!--end of row-->
+        </div><!--end of container-->
+        <div class="footer__lower text-center-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="footer-stack-copyright">
+        <span class="type--fine-print" style="color:rgb(207, 199, 199);">©2018 Pezesha. All Rights Reserved.</span></div>				</div>
+                    <div class="col-sm-6 text-right text-center-xs">
+                        
+    <p class="social-list list-inline list-hover stack-footer-social">
+        
+                              <a href="https://twitter.com/pezeshakenya" target="_blank">
+                                  <i class="fa fa-fw fa-lg fa-twitter"></i>
+                              </a>
+                         
+                              <a href="https://www.facebook.com/Pezesha/" target="_blank">
+                                  <i class="fa fa-fw fa-lg fa-facebook"></i>
+                              </a>
+                          
+                              <a href="https://ke.linkedin.com/company/pezesha" target="_blank">
+                                  <i class="fa fa-fw fa-lg fa-linkedin"></i>
+                              </a>
+                          </p>				</div>
+                </div><!--end of row-->
+            </div><!--end of container-->
+        </div>
+    </footer>
+    </div><!-- /main-container -->
+    
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '2971502836201238');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=2971502836201238&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code --><link rel='stylesheet' id='vc_google_fonts_montserratregular700-css'  href='//fonts.googleapis.com/css?family=Montserrat%3Aregular%2C700&#038;ver=4.8.6' type='text/css' media='all' />
+    <link rel='stylesheet' id='vc_google_fonts_open_sans300300italicregularitalic600600italic700700italic800800italic-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&#038;ver=4.8.6' type='text/css' media='all' />
+    <link rel='stylesheet' id='font-aws-css'  href='https://pezesha.com/wp-content/plugins/process-steps-template-designer/icons-selector/css/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='cool_process_styles-css'  href='https://pezesha.com/wp-content/plugins/process-steps-template-designer/css/cool-process.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='pp_slick_style-css'  href='https://pezesha.com/wp-content/plugins/process-steps-template-designer/slick/slick.css' type='text/css' media='all' />
+    <script type='text/javascript' src='https://pezesha.com/wp-content/plugins/contact-form-7-style/js/frontend-min.js?ver=3.1.7'></script>
+    
+    <script type='text/javascript' src='https://pezesha.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.0.4'></script>
+    <script type='text/javascript' src='https://pezesha.com/wp-content/themes/pezesha/style/js/plugins.js?ver=4.8.6'></script>
+    <script type='text/javascript' src='https://pezesha.com/wp-content/themes/pezesha/style/js/scripts_wp.js?ver=4.8.6'></script>
+    <script type='text/javascript'>
+    
+    </script>
+    <script type='text/javascript' src='https://pezesha.com/wp-content/themes/pezesha/style/js/scripts.js?ver=4.8.6'></script>
+    <script type='text/javascript' src='https://pezesha.com/wp-includes/js/wp-embed.min.js?ver=4.8.6'></script>
+    <script type='text/javascript' src='https://pezesha.com/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=5.1.1'></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js'></script>
+     <script>
+        //Get the button:
+    mybutton = document.getElementById("myBtn");
+    
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+      </script>
+{% endblock %}
+</body>
+  
+    
+    </html>
