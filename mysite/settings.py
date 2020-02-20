@@ -26,7 +26,7 @@ SECRET_KEY = 'w(gn#4op(yq4-_@@z0zsw2-!c-ai4#wb48a1y^(ke)y)c1q(&y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pezeshatrail.herokuapp.com']
 
 
 # Application definition
