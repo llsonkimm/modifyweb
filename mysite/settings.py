@@ -11,11 +11,12 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
-
+load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -26,7 +27,7 @@ SECRET_KEY = 'w(gn#4op(yq4-_@@z0zsw2-!c-ai4#wb48a1y^(ke)y)c1q(&y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pezeshatrail.herokuapp.com']
+ALLOWED_HOSTS = ['pezeshatrail.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -148,7 +149,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 LOGOUT_REDIRECT_URL='/login/'
-LOGIN_REDIRECT_URL='/profile/'
+LOGIN_REDIRECT_URL='/trial1/'
 LOGIN_URL='/login/'
 LOGIN_ERROR_URL = '/login/'
 

@@ -1,4 +1,5 @@
 from django.urls import path
+from django.contrib import admin
 from django.views.generic import RedirectView
 
 from mysite.core import views
@@ -10,6 +11,7 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('', views.HomeView.as_view(), name='home'),
     path('register/', views.RegisterView.as_view(), name='register'),
     path('trial1/', views.CustomFieldFormView.as_view(), name='trial_1'),
