@@ -17,67 +17,53 @@
 </head>
 
 <body>
-<section class="hero is-fullheight"   >
 
-      <div class="columns">
-        <div class="column is-offset-2 is-4">
+
+      
 
           <form class="needs-validation" action="{% url 'trial_1' %}" method="POST" autocomplete="off" novalidate>
             {% csrf_token %}
-            <div class="field">
-              <label for="{{ form.full_name.id_for_label }}" class="label">
-                Full Name On National ID
-              </label>
-              <div class="control">
-                {{ form.full_name|add_class:"input" }}
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom01">Full names on national id</label>
+                <input type="text" class="form-control" id="validationCustom01" required>
+                <div class="invalid-feedback">
+                  Place enter your full names as in ID
+                </div>
               </div>
-              <p class="help is-danger">{{ form.full_name.errors }}</p>
             </div>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="validationCustom02">National ID Number</label>
+                  <input type="number" class="form-control" id="validationCustom02" required>
+                  <div class="invalid-feedback">
+                    Place enter ID Number correctly
+                  </div>
+                </div>
 
-            <div class="field">
-              <label for="{{ form.national_id.id_for_label }}" class="label">
-                National ID
-              </label>
-              <div class="control">
-                {{ form.national_id|add_class:"input" }}
+                <div class="col-md-3 mb-3">
+                  <label for="validationCustom03">Phone Number</label>
+                  <input type="number" class="form-control" id="validationCustom03" required>
+                  <div class="invalid-feedback">
+                    Place enter Phone Number correctly
+                  </div>
+                </div>
               </div>
-              <p class="help is-danger">{{ form.national_id.errors }}</p>
-            </div>
-
-            <div class="field">
-              <label for="{{ form.email.id_for_label }}" class="label">
-                Email
-              </label>
-              <div class="control">
-                {{ form.email|add_class:"input" }}
-              </div>
-              <p class="help is-danger">{{ form.email.errors }}</p>
-            </div>
-    
-            <div class="field">
-              <label for="{{ form.phone_number.id_for_label }}" class="label">
-                Phone Number
-              </label>
-              <div class="control">
-                {{ form.phone_number|add_class:"input" }}
-              </div>
-              <p class="help is-danger">{{ form.phone_number.errors }}</p>
-            </div>
-
-            <div class="field">
-              <div class="control">
-                <a class="button is-link"  href="{% url 'trial_2' %}">Next</a>
+              <div class="form-row">
+                <div class="col-md-8 mb-3">
+                  <label for="validationCustom04">Email</label>
+                  <input type="number" class="form-control" id="validationCustom04" required>
+                  <div class="invalid-feedback">
+                    Place enter a valid email
+                  </div>
+                </div>
               </div>
 
-        
-            </div>
+              <button class="btn btn-primary" type="submit">Submit form</button>
+
           </form>
         </div>
       </div>
-
-    </div>
-  </div>
-</section>
 
 <script>
   // Example starter JavaScript for disabling form submissions if there are invalid fields
