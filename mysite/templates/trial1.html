@@ -13,22 +13,30 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
   <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <link rel="stylesheet" href="{%static 'core/style2.css'%}">
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.11/js/intlTelInput.min.js" integrity="sha256-679hprK8vxlf4fnVBENMDhjXffz6MSULSiah9G9FRZg=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.11/css/intlTelInput.css" integrity="sha256-rTKxJIIHupH7lFo30458ner8uoSSRYciA0gttCkw1JE=" crossorigin="anonymous" />
+  <style>
+    .iti__flag {background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.11/img/flags.png");}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+.iti__flag {background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.11/img/flags@2x.png");}
+}
+  </style>
 </head>
 
 <body>
 
 
-      
+      <div class="container">
 
           <form class="needs-validation" action="{% url 'trial_1' %}" method="POST" autocomplete="off" novalidate>
             {% csrf_token %}
             <div class="form-row">
-              <div class="col-md-4 mb-3">
-                <label for="validationCustom01">Full names on national id</label>
+              <div class="col-md-9 mb-3">
+                <label for="validationCustom01">Full Name On National ID</label>
                 <input type="text" class="form-control" id="validationCustom01" required>
                 <div class="invalid-feedback">
-                  Place enter your full names as in ID
+                  Please enter your full names as in ID
                 </div>
               </div>
             </div>
@@ -37,24 +45,58 @@
                   <label for="validationCustom02">National ID Number</label>
                   <input type="number" class="form-control" id="validationCustom02" required>
                   <div class="invalid-feedback">
-                    Place enter ID Number correctly
+                    Please enter ID Number correctly
                   </div>
                 </div>
 
                 <div class="col-md-3 mb-3">
-                  <label for="validationCustom03">Phone Number</label>
-                  <input type="number" class="form-control" id="validationCustom03" required>
-                  <div class="invalid-feedback">
-                    Place enter Phone Number correctly
-                  </div>
+                  <label for="phone">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone"  required>
+                    <span id="error-msg" class="hide"></span>
+                    <span id="valid-msg" class="hide"></span>
+                    <div class="invalid-feedback">
+                      Please your Phone Number
+                    </div>
+                    <script>
+                      var input = document.querySelector("#phone"),
+                          errorMsg = document.querySelector("#error-msg"),
+                          validMsg = document.querySelector("#valid-msg");
+                      var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+                      var iti = window.intlTelInput(input, {
+                        onlyCountries: ["ke"],
+                        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/8.4.6/js/utils.js" // just for formatting/placeholders etc
+                      });
+                      var reset = function() {
+                        input.classList.remove("error");
+                        errorMsg.innerHTML = "";
+                        errorMsg.classList.add("hide");
+                        validMsg.classList.add("hide");
+                      };
+                      input.addEventListener('blur', function() {
+                        reset();
+                        if (input.value.trim()) {
+                          if (iti.isValidNumber()) {
+                            validMsg.classList.remove("hide");
+                          } else {
+                            input.classList.add("error");
+                            var errorCode = iti.getValidationError();
+                            errorMsg.innerHTML = errorMap[errorCode];
+                            errorMsg.classList.remove("hide");
+                          }
+                        }
+                      });
+                      input.addEventListener('change', reset);
+                      input.addEventListener('keyup', reset);
+                    </script>
+   
                 </div>
               </div>
               <div class="form-row">
-                <div class="col-md-8 mb-3">
+                <div class="col-md-6 mb-3">
                   <label for="validationCustom04">Email</label>
-                  <input type="number" class="form-control" id="validationCustom04" required>
+                  <input type="email" class="form-control" id="validationCustom04" required>
                   <div class="invalid-feedback">
-                    Place enter a valid email
+                    Please enter a valid email
                   </div>
                 </div>
               </div>
@@ -63,7 +105,7 @@
 
           </form>
         </div>
-      </div>
+
 
 <script>
   // Example starter JavaScript for disabling form submissions if there are invalid fields

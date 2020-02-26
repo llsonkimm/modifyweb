@@ -23,87 +23,129 @@
     <div class="form-row">
       <div class="col-md-4 mb-3">
         <label for="validationCustom01">Company Name</label>
-        <input type="text" class="form-control" id="validationCustom01" required>
+        <input type="text" class="form-control" id= "validationCustom01" required>
         <div class="invalid-feedback">
-          Place enter company name
+          Please enter company name
         </div>
       </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationCustom02">Specific Location</label>
+        <input type="text" class="form-control" id="validationCustom02" required>
+        <div class="invalid-feedback">
+          Please enter location of stated company
+        </div>
+    </div>
     </div>
       <div class="form-row">
-        <div class="col-md-6 mb-3">
-          <label for="validationCustom02">Specific Location</label>
-          <input type="number" class="form-control" id="validationCustom02" attrs="{'placeholder': 'Eg. Nairobi CBD at Telcom Towers'}" required>
-          <div class="invalid-feedback">
-            Place enter location of stated company
-          </div>
-        </div>
-
-        <div class="col-md-3 mb-3">
+        <div class="col-md-4 mb-3">
           <label for="validationCustom03">Type of Business Registration?</label>
-          <input type="number" class="form-control" id="validationCustom03" required>
+          <select class="form-control" id="validationCustom03" required>
+            <option>Sole Propriatorship</option>
+            <option>Partnarship</option>
+            <option>Limited Liability</option>
+            <option>Others</option>
+          </select>
           <div class="invalid-feedback">
-            Place enter type of business?
+            Please enter type of business?
           </div>
         </div>
-      </div>
-      <div class="form-row">
-        <div class="col-md-8 mb-3">
+
+        <div class="col-md-4 mb-3">
           <label for="validationCustom04"> How old is your business?</label>
-          <input type="number" class="form-control" id="validationCustom04" required>
+          <select class="form-control" id="validationCustom04" required>
+            <option>Less than 1 Month</option>
+            <option>1 - 3 Months</option>
+            <option>4 - 6 Months</option>
+            <option>7 - 12 Months</option>
+            <option>1 - 2 Years</option>
+            <option>2+ Years</option>
+          </select>
           <div class="invalid-feedback">
-            Place enter age of business
+            Please enter age of business
           </div>
-        </div>
-
-        <div class="col-md-8 mb-3">
+      </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
           <label for="validationCustom05"> Industry of Business?</label>
-          <input type="number" class="form-control" id="validationCustom05" required>
+          <select class="form-control" id="validationCustom05" required>
+            <option>Manufacturing</option>
+            <option>Clothing</option>
+            <option>Technology</option>
+            <option>Internet</option>
+            <option>Engineering/Design</option>
+            <option>Retails</option>
+            <option>Uknown/Other</option>
+            <option>Computers/Electronics</option>
+            <option>Agriculture</option>
+            <option>Printing</option>
+            <option>Insurance</option>
+            <option>Education</option>
+            <option>Health</option>
+            <option>Services</option>
+            <option>Fast Moving Consumer Goods</option>
+            <option>Restaurant</option>
+            <option>Food</option>
+            <option>Transport</option>
+            <option>Property</option>
+            <option>Real Estate</option>
+            <option>Wholesale</option>
+            <option>Hospitality</option>
+          </select>
           <div class="invalid-feedback">
-            Place enter industry of business
+            Please enter industry of business
           </div>
         </div>
 
-        <div class="col-md-8 mb-3">
-          <label for="validationCustom06"> Company Registration No or Equivalent</label>
-          <input type="number" class="form-control" id="validationCustom06" required>
+        <div class="col-md-4 mb-3">
+          <label for="validationCustom06"> Estimated Yearly Revenue? (KES)</label>
+          <select class="form-control" id="validationCustom06" required>
+            <option>KES 0 to KES 50,000</option>
+            <option>KES 50,000 to KES 100,000</option>
+            <option>KES 100,000 to KES 200,000</option>
+            <option>KES 200,000 to KES 500,000</option>
+            <option>KES 500,000 to KES 1 million</option>
+            <option>KES 1 million to KES 2 million</option>
+            <option>KES 2 million to KES 5 million</option>
+            <option>KES 5 million +</option>
+          </select>
           <div class="invalid-feedback">
-            Place enter company registration
+            Please enter estimated revenue 
           </div>
         </div>
       </div>
 
       <div class="form-row">
-        <div class="col-md-8 mb-3">
-          <label for="validationCustom07"> Estimated Yearly Revenue? (KES)</label>
-          <input type="number" class="form-control" id="validationCustom07" required>
+        <div class="col-md-4 mb-3">
+          <label for="validationCustom07">Company Registration No or Equivalent </label>
+          <input type="text" class="form-control" id="validationCustom07" required>
           <div class="invalid-feedback">
-            Place enter estimated revenue
+            Please enter company registration
           </div>
         </div>
 
-        <div class="col-md-8 mb-3">
+        <div class="col-md-4 mb-3">
           <label for="validationCustom08"> Company Website/Social Media (Optional)</label>
-          <input type="number"  id="validationCustom08" >
+          <input type="text"  class = "form-control" id="validationCustom08" >
          
         </div>
-
-        <div class="col-md-8 mb-3">
+      </div>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
           <label for="validationCustom09"> Mpesa\Till No Business Payments Accepted?</label>
-          <input type="number" class="form-control" id="validationCustom09" required>
+          <select class="form-control" id="validationCustom09" required>
+            <option>NO</option>
+            <option>YES</option>
+          </select>
           <div class="invalid-feedback">
-            Place enter Mpesa services
+            Please enter Mpesa services
           </div>
         </div>
       </div>
 
       <button class="btn btn-primary" type="submit">Submit form</button>
-          </form>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+   </form>
+ 
 <script>
   // Example starter JavaScript for disabling form submissions if there are invalid fields
   (function() {

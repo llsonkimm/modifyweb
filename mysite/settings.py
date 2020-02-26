@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'crispy_forms',
     'guardian',
+    'intl_tel_input',
 
     'mysite.core',
 ]
