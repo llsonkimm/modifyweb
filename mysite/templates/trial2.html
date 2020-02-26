@@ -17,7 +17,7 @@
 </head>
 
 <body>
-
+<section class="container" id="view">
   <form class="needs-validation" action="{% url 'trial_1' %}" method="POST" autocomplete="off" novalidate>
     {% csrf_token %}
     <div class="form-row">
@@ -143,9 +143,16 @@
         </div>
       </div>
 
-      <button class="btn btn-primary" type="submit">Submit form</button>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+        <button class="btn btn-primary" type="submit">Back</button>
+        </div>
+        <div class="col-md-4 mb-3">
+        <button class="btn btn-primary" type="submit">Next</button>
+      </div>
+      </div>
    </form>
- 
+  </section>
 <script>
   // Example starter JavaScript for disabling form submissions if there are invalid fields
   (function() {
