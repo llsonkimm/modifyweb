@@ -18,19 +18,20 @@
 
 <body>
 <section class="container" id="view">
-  <form class="needs-validation" action="{% url 'trial_1' %}" method="POST" autocomplete="off" novalidate>
+  <form class="needs-validation"   action="{% url 'trial_2' %}" method="POST" autocomplete="off" novalidate>
     {% csrf_token %}
-    <div class="form-row">
+    <div id="business" class="tab-pane fade">              
+      <div class="form-row">
       <div class="col-md-4 mb-3">
-        <label for="validationCustom01">Company Name</label>
-        <input type="text" class="form-control" id= "validationCustom01" required>
+        <label for="company_name">Company Name</label>
+        <input type="text" class="form-control" id= "company_name" required>
         <div class="invalid-feedback">
           Please enter company name
         </div>
       </div>
       <div class="col-md-4 mb-3">
-        <label for="validationCustom02">Specific Location</label>
-        <input type="text" class="form-control" id="validationCustom02" required>
+        <label for="specific_location">Specific Location</label>
+        <input type="text" class="form-control" id="specific_location" placeholder="Eg. Nairobi CBD at Telcom Towers" required>
         <div class="invalid-feedback">
           Please enter location of stated company
         </div>
@@ -38,8 +39,8 @@
     </div>
       <div class="form-row">
         <div class="col-md-4 mb-3">
-          <label for="validationCustom03">Type of Business Registration?</label>
-          <select class="form-control" id="validationCustom03" required>
+          <label for="type_of_business">Type of Business Registration?</label>
+          <select class="form-control" id="type_of_business" required>
             <option>Sole Propriatorship</option>
             <option>Partnarship</option>
             <option>Limited Liability</option>
@@ -51,8 +52,8 @@
         </div>
 
         <div class="col-md-4 mb-3">
-          <label for="validationCustom04"> How old is your business?</label>
-          <select class="form-control" id="validationCustom04" required>
+          <label for="age_of_business"> How old is your business?</label>
+          <select class="form-control" id="age_of_business" required>
             <option>Less than 1 Month</option>
             <option>1 - 3 Months</option>
             <option>4 - 6 Months</option>
@@ -67,8 +68,8 @@
       </div>
       <div class="form-row">
         <div class="col-md-4 mb-3">
-          <label for="validationCustom05"> Industry of Business?</label>
-          <select class="form-control" id="validationCustom05" required>
+          <label for="bsn_industry"> Industry of Business?</label>
+          <select class="form-control" id="bsn_industry" required>
             <option>Manufacturing</option>
             <option>Clothing</option>
             <option>Technology</option>
@@ -98,8 +99,8 @@
         </div>
 
         <div class="col-md-4 mb-3">
-          <label for="validationCustom06"> Estimated Yearly Revenue? (KES)</label>
-          <select class="form-control" id="validationCustom06" required>
+          <label for="company_reg"> Estimated Yearly Revenue? (KES)</label>
+          <select class="form-control" id="company_reg" required>
             <option>KES 0 to KES 50,000</option>
             <option>KES 50,000 to KES 100,000</option>
             <option>KES 100,000 to KES 200,000</option>
@@ -117,23 +118,23 @@
 
       <div class="form-row">
         <div class="col-md-4 mb-3">
-          <label for="validationCustom07">Company Registration No or Equivalent </label>
-          <input type="text" class="form-control" id="validationCustom07" required>
+          <label for="est_revenue">Company Registration No or Equivalent </label>
+          <input type="text" class="form-control" id="est_revenue" required>
           <div class="invalid-feedback">
             Please enter company registration
           </div>
         </div>
 
         <div class="col-md-4 mb-3">
-          <label for="validationCustom08"> Company Website/Social Media (Optional)</label>
-          <input type="text"  class = "form-control" id="validationCustom08" >
+          <label for="comp_site"> Company Website/Social Media (Optional)</label>
+          <input type="text"  class = "form-control" id="comp_site" >
          
         </div>
       </div>
       <div class="form-row">
         <div class="col-md-4 mb-3">
-          <label for="validationCustom09"> Mpesa\Till No Business Payments Accepted?</label>
-          <select class="form-control" id="validationCustom09" required>
+          <label for="mpesa"> Mpesa\Till No Business Payments Accepted?</label>
+          <select class="form-control" id="mpesa" required>
             <option>NO</option>
             <option>YES</option>
           </select>
@@ -145,12 +146,13 @@
 
       <div class="form-row">
         <div class="col-md-4 mb-3">
-        <button class="btn btn-primary" type="submit">Back</button>
+        <button class="btn btn-primary btnBack" type="submit">Back</button>
         </div>
         <div class="col-md-4 mb-3">
-        <button class="btn btn-primary" type="submit">Next</button>
+        <button class="btn btn-primary btnNext" type="submit">Next</button>
       </div>
       </div>
+    </div>
    </form>
   </section>
 <script>
@@ -172,6 +174,51 @@
       });
     }, false);
   })();
+
+
+  function checkEmpty(selector) {  	
+    var isFailed = false;
+    var id = $.trim($(selector).val());    
+    // Check if empty or not
+    if (id === '') {
+        alert(selector + ' field is empty.');
+        isFailed = true;
+    }
+    return isFailed;
+  }
+  
+  
+  function validate() {  	
+    var isFailed = false;
+
+		var listOfRequiredFields = ['#company_name', '#specific_location', '#type_of_business', '#age_of_business', '#bsn_industry', '#company_reg', '#est_revenue', '#comp_site', '#mpesa']; //example it should contain all, ideally you can add a class for all the required elements  and then use it or query all input type elements. This is just for illustration
+    
+   isFailed =  listOfRequiredFields.some(function(selector, index){
+    		if($(selector).closest('.tab-pane ').hasClass('active')) {
+        		return checkEmpty(selector)
+        }    		
+    });	
+  	return isFailed;  	
+  }
+  
+   $('.nav-pills a').on('hide.bs.tab', function(e) {
+   		if(validate()){
+    			e.preventDefault();
+    	}
+   });
+ 
+   $('.btnNext').click(function(){
+   	if(!validate()){
+    	 $('.nav-pills > .active').next('li').find('a').trigger('click');
+    }
+   
+  });
+
+  $('.btnBack').click(function(){
+  	if(!validate()) {
+    	  $('.nav-pills > .active').prev('li').find('a').trigger('click');
+    }  
+  });
   </script>
 </body>
 </html>

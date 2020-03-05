@@ -32,23 +32,27 @@
           Complete the following steps to submit your SME Loan application.
         </p>
       </div>
+
     
+        <ul class="nav nav-pills nav_content">
+
+          <li class="active"><a class="btn btn-success  {% if request.path == 'trial1/' %} active{% endif %}" data-toggle="pill" href="{% url 'trial_1' %}"><i class=" large material-icons "  >account_box</i></a>
+            <a class="{% if request.path == 'trial1/' %} active{% endif %}" data-toggle="pill" href="{% url 'trial_1' %}">Personal Details</a>
+            <br>
+          </li>
+          
+
   
-    <div class=" card-group">
-      <div class="card  is-offset-2 is-4">
-      <a class="btn btn-success {% if request.path == '/trial1/' %} active{% endif %}" href="{% url 'trial_1' %}"><i class=" large material-icons "  >account_box</i></a>
-      <p class="card-text"> <a class="{% if request.path == '/trial1/' %} active{% endif %}" href="{% url 'trial_1' %}">Personal Details</a></p>
-    </div>
-    <div class="card   is-offset-2 is-4">
-    <a class="btn btn-success {% if request.path == '/trial2/' %} active{% endif %}" href="{% url 'trial_2' %}" ><i class=" large material-icons"  >settings</i></a>
-      <p class="card-text"><a class="{% if request.path == '/trial2/' %} active{% endif %}" href="{% url 'trial_2' %}">Business Info</a></p>
-    </div>
+          <li><a data-toggle="pill" class="btn btn-success  {% if request.path == 'trial2/' %} active{% endif %}" href="{% url 'trial_2' %}"><i class=" large material-icons"  >settings</i></a>
+            <a class="{% if request.path == 'trial2/' %} active{% endif %}" data-toggle="pill"  href="{% url 'trial_2' %}">Business Info</a>       <br>
+          </li>
+          
+
+           <li><a data-toggle="pill" class="btn btn-success  {% if request.path == 'trial3/' %} active{% endif %}" href="{% url 'trial_3' %}"><i class=" large material-icons"  >settings</i></a>
+              <a class="{% if request.path == 'trial3/' %} active{% endif %}" data-toggle="pill"  href="{% url 'trial_3' %}">Funding Needs</a>       <br>
+          </li>
+        </ul>
   
-    <div class="card  is-offset-2 is-4 "> 
-    <a class="btn btn-success {% if request.path == '/trial3/' %} active{% endif %}" href="{% url 'trial_3' %}"><i class=" large material-icons" >done</i></a>
-      <p class="card-text"><a class="{% if request.path == '/trial3/' %} active{% endif %}" href="{% url 'trial_3' %}">Funding Needs</a></p>
-  </div> 
-      </div>
   
   </div>
 </div>

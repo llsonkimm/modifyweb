@@ -3,7 +3,7 @@ from django.conf import settings
 from django.views.generic import FormView, TemplateView
 from django.urls import reverse_lazy
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from .forms import PersonalForm, CustomFieldForm, CustomBusinessFieldForm
+from .forms import PersonalForm, BusinessForm, NeedsForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -13,7 +13,6 @@ from django.core.mail import EmailMessage
 from django.template.loader import get_template
 from django.http import HttpResponse
 from django.views import View
-from mysite.core.forms import RegistrationForm, BusinessForm, CustomFieldForm, CustomNeedsFieldForm, NeedsForm
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.shortcuts import render, redirect, reverse, get_object_or_404
@@ -22,28 +21,14 @@ from guardian.mixins import PermissionRequiredMixin
 from guardian.shortcuts import assign_perm, get_objects_for_user
 
 from .tokens import user_tokenizer
-from .forms import RegistrationForm, CustomBusinessFieldForm, CustomFieldForm, CustomNeedsFieldForm
+from .forms import RegistrationForm, PersonalForm, BusinessForm, NeedsForm
+from django.http.response import HttpResponseRedirect
 
 
 class HomeView(FormView):
     def get(self, request):
         return render(request, 'home.html')
 
-class CustomFieldFormView(FormView):
-    form_class = CustomFieldForm
-    success_url = reverse_lazy('success')
-    template_name = 'crispy_form.html'
-
-
-class CustomBusinessFieldFormView(FormView):
-    form_class = CustomBusinessFieldForm
-    success_url = reverse_lazy('success')
-    template_name = 'crispy_form.html'
-
-class CustomNeedsFieldFormView(FormView):
-    form_class = CustomNeedsFieldForm
-    success_url = reverse_lazy('success')
-    template_name = 'crispy_form.html'
 
 class SuccessView(TemplateView):
     template_name = 'success.html'
@@ -82,14 +67,61 @@ class ConfirmRegistrationView(View):
 
 class CustomFieldFormView(FormView):
     def get(self, request):
-        return render(request, 'trial1.html', { 'form': PersonalForm() })
+        # if this is a POST request we need to process the form data
+        if request.method == 'POST':
+            # create a form instance and populate it with data from the request:
+            form = PersonalForm(request.POST)
+            # check whether it's valid:
+            if form.is_valid():
+                # process the data in form.cleaned_data as required
+                # ...
+                # redirect to a new URL:
+                return HttpResponseRedirect('trial2/')
+
+        # if a GET (or any other method) we'll create a blank form
+        else:
+            form = PersonalForm()
+
+        return render(request, 'trial1.html', {'form': PersonalForm()})
+
+
+
+
 
 class CustomBusinessFieldFormView(FormView):
     def get(self, request):
+         # if this is a POST request we need to process the form data
+        if request.method == 'POST':
+            # create a form instance and populate it with data from the request:
+            form = BusinessForm(request.POST)
+            # check whether it's valid:
+            if form.is_valid():
+                # process the data in form.cleaned_data as required
+                # ...
+                # redirect to a new URL:
+                return HttpResponseRedirect('trial3/')
+
+        # if a GET (or any other method) we'll create a blank form
+        else:
+            form = BusinessForm()
         return render(request, 'trial2.html', { 'form': BusinessForm() })
 
 class CustomNeedsFieldFormView(FormView):
     def get(self, request):
+         # if this is a POST request we need to process the form data
+        if request.method == 'POST':
+            # create a form instance and populate it with data from the request:
+            form = NeedsForm(request.POST)
+            # check whether it's valid:
+            if form.is_valid():
+                # process the data in form.cleaned_data as required
+                # ...
+                # redirect to a new URL:
+                return HttpResponseRedirect('/success/')
+
+        # if a GET (or any other method) we'll create a blank form
+        else:
+            form = NeedsForm()
         return render(request, 'trial3.html', { 'form': NeedsForm() })
 
 

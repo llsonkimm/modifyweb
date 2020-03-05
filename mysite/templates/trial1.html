@@ -25,82 +25,91 @@
   
 </head>
 
+
+
 <body>
 
-    <section class="container" id="view"></section>
-          <form class="needs-validation"  method="POST" autocomplete="off" novalidate>
+    <section class="container" id="view">
+          <form class="needs-validation" action="{% url 'trial_1' %}" method="POST" autocomplete="off" novalidate>
             {% csrf_token %}
-            <div class="form-row">
-              <div class="col-md-8 mb-3">
-                <label for="validationCustom01">Full Name On National ID</label>
-                <input type="text" class="form-control" id="validationCustom01" required>
-                <div class="invalid-feedback">
-                  Please enter your full names as in ID
-                </div>
-              </div>
-            </div>
-              <div class="form-row">
-                <div class="col-md-6 mb-3">
-                  <label for="validationCustom02">National ID Number</label>
-                  <input type="number" class="form-control" id="validationCustom02" required>
-                  <div class="invalid-feedback">
-                    Please enter ID Number correctly
+              <div id="personal" class="tab-pane active">
+                <div class="form-row">
+                  <div class="col-md-8 mb-3">
+                    <label for="full_name">Full Name On National ID</label>
+                    <input type="text" class="form-control" id="full_name" required>
+                    <div class="invalid-feedback">
+                      Please enter your full names as in ID
+                    </div>
                   </div>
                 </div>
-
-                <div class="col-md-2 mb-3">
-                  <label for="validationCustom03">Phone Number</label>
-                    <input type="tel" class="form-control" id="validationCustom03"  required>
-                    <span id="error-msg" class="hide" color="danger" ></span>
-                    <span id="valid-msg" class="hide"></span>
-                    <script>
-                      var input = document.querySelector("#validationCustom03"),
-                          errorMsg = document.querySelector("#error-msg"),
-                          validMsg = document.querySelector("#valid-msg");
-                      var errorMap = [ "Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
-                      var iti = window.intlTelInput(input, {
-                        onlyCountries: ["ke"],
-                        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/8.4.6/js/utils.js" // just for formatting/placeholders etc
-                      });
-                      var reset = function() {
-                        input.classList.remove("error");
-                        errorMsg.innerHTML = "";
-                        errorMsg.classList.add("hide");
-                        validMsg.classList.add("hide");
-                      };
-                      input.addEventListener('blur', function() {
-                        reset();
-                        if (input.value.trim()) {
-                          if (iti.isValidNumber()) {
-                            validMsg.classList.remove("hide");
-                          } else {
-                            input.classList.add("error");
-                            var errorCode = iti.getValidationError();
-                            errorMsg.innerHTML = errorMap[errorCode];
-                            errorMsg.classList.remove("hide");
-                          }
-                        }
-                      });
-                      input.addEventListener('change', reset);
-                      input.addEventListener('keyup', reset);
-                    </script>
-                    
-   
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="col-md-6 mb-3">
-                  <label for="validationCustom04">Email</label>
-                  <input type="email" class="form-control" id="validationCustom04" required>
-                  <div class="invalid-feedback">
-                    Please enter a valid email
+                  <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                      <label for="national_id">National ID Number</label>
+                      <input type="number" class="form-control" id="national_id" required>
+                      <div class="invalid-feedback">
+                        Please enter ID Number correctly
+                      </div>
+                    </div>
+    
+                    <div class="col-md-2 mb-3">
+                      <label for="phone_number">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone_number"  required>
+                        <span id="error-msg" class="hide" color="danger" ></span>
+                        <span id="valid-msg" class="hide"></span>
+                        <script>
+                          var input = document.querySelector("#phone_number"),
+                              errorMsg = document.querySelector("#error-msg"),
+                              validMsg = document.querySelector("#valid-msg");
+                          var errorMap = [ "Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+                          var iti = window.intlTelInput(input, {
+                            onlyCountries: ["ke"],
+                            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/8.4.6/js/utils.js" // just for formatting/placeholders etc
+                          });
+                          var reset = function() {
+                            input.classList.remove("error");
+                            errorMsg.innerHTML = "";
+                            errorMsg.classList.add("hide");
+                            validMsg.classList.add("hide");
+                          };
+                          input.addEventListener('blur', function() {
+                            reset();
+                            if (input.value.trim()) {
+                              if (iti.isValidNumber()) {
+                                validMsg.classList.remove("hide");
+                              } else {
+                                input.classList.add("error");
+                                var errorCode = iti.getValidationError();
+                                errorMsg.innerHTML = errorMap[errorCode];
+                                errorMsg.classList.remove("hide");
+                              }
+                            }
+                          });
+                          input.addEventListener('change', reset);
+                          input.addEventListener('keyup', reset);
+                        </script>
+                        
+       
+                    </div>
                   </div>
+                  <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                      <label for="email">Email</label>
+                      <input type="email" class="form-control" id="email" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid email
+                      </div>
+                    </div>
+                  </div>
+                
+                  <button class="btn btn-primary btnNext " type="submit">Next</button>
                 </div>
-              </div>
-
-              <button class="btn btn-primary " type="submit">Next</button>
+  
+            
+              
+             
 
           </form>
+
  
         </section>
 
@@ -123,6 +132,46 @@
       });
     }, false);
   })();
+
+
+  function checkEmpty(selector) {  	
+    var isFailed = false;
+    var form = $.trim($(selector).val());    
+    // Check if empty or not
+    if (form === '') {
+        alert('Ensure to complete all the necessary fields');
+        isFailed = true;
+    }
+    return isFailed;
+  }
+  
+  
+  function validate() {  	
+    var isFailed = false;
+
+		var listOfRequiredFields = [input]; //example it should contain all, ideally you can add a class for all the required elements  and then use it or query all input type elements. This is just for illustration
+    
+   isFailed =  listOfRequiredFields.some(function(selector, index){
+    		if($(selector).closest('.tab-pane ').hasClass('active')) {
+        		return checkEmpty(selector)
+        }    		
+    });	
+  	return isFailed;  	
+  }
+  
+   $('.nav-pills a').on('hide.bs.tab', function(e) {
+   		if(validate()){
+    			e.preventDefault();
+    	}
+   });
+ 
+   $('.btnNext').click(function(){
+   	if(!validate()){
+    	 $('.nav-pills > .active').next('li').find('a').trigger('click');
+    }
+   
+  });
+
   </script>
 
 

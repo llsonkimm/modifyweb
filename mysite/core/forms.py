@@ -140,99 +140,23 @@ class CustomCheckbox(Field):
     template = 'custom_checkbox.html'
 
 class CustomBusinessFieldForm(BusinessForm):
-  def __init__(self, *args, **kwargs):
+      def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.layout = Layout(
-            Row(
-                Column('company_name', css_class='form-group col-md-4 mb-0'),
-                Column('specific_location', css_class='form-group col-md-4 mb-0'),
-                css_class='form-row'
-            ),
-           
-            Row(
-                Column('type_of_business', css_class='form-group col-md-4 mb-0'),
-                Column('age_of_business', css_class='form-group col-md-4 mb-0'),
-                css_class='form-row'
-            ),
-
-            Row(
-                Column('bsn_industry', css_class='form-group col-md-4 mb-0'),
-                Column('est_revenue', css_class='form-group col-md-4 mb-0'),
-                
-                css_class='form-row'
-            ),
-
-            Row(
-                Column('company_reg', css_class='form-group col-md-4 mb-0'),
-                Column('comp_site', css_class='form-group col-md-4 mb-0'),
-                css_class='form-row'
-            ),
-
-              Row(
-                Column('mpesa', css_class='form-group col-md-4 mb-0'),
-                css_class='form-row'
-            ),
-
-            CustomCheckbox('check_me_out'),
-            Submit('submit', 'Next')
-        )
+        template = 'trial2.html'
 
 
 class CustomFieldForm(PersonalForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.layout = Layout(
-                   
-               Row(
-                Column('full_name', css_class='form-group col-md-8 mb-0'),
-                css_class='form-row'
-            ),
-           
-            Row(
-                Column('national_id', css_class='form-group col-md-4 mb-0'),
-                Column('phone_number', css_class='form-group col-md-4 mb-0'),
-                css_class='form-row'
-            ),
-
-
-             Row(
-                Column('email', css_class='form-group col-md-4 mb-0'),
-                css_class='form-row'
-            ),
-
-     
-            Submit('submit', 'Next')
-        )
+        template = 'trial1.html'
+    
 
 class CustomNeedsFieldForm(NeedsForm):
      def __init__(self, *args, **kwargs):
             super().__init__(*args, **kwargs)
             self.helper = FormHelper()
-            self.helper.layout = Layout(
-                    
-                 Row(
-                Column('kra_pin', css_class='form-group col-md-4 mb-0'),
-                Column('amount_needed', css_class='form-group col-md-4 mb-0'),
-                css_class='form-row'
-            ),
-           
-            Row(
-                Column('funds_for', css_class='form-group col-md-8 mb-0'),
-                
-                css_class='form-row'
-            ),
-
-            Row(
-                Column('months_for', css_class='form-group col-md-4 mb-0'),
-                Column('about_us', css_class='form-group col-md-4 mb-0'),
-                css_class='form-row'
-                
-            ),
-
-    
-
-            'agreed',
-            Submit('submit', 'Submit Application')
-        )
+            template = 'trial3.html'
+            
+     
